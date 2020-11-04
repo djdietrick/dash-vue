@@ -1,11 +1,13 @@
 <template>
     <div>
         <div class="trigger">
+            <!-- @slot Trigger for the Modal -->
             <slot name="trigger"></slot>
         </div>
         <transition name="fade">
             <div class="dash-modal" ref="modal">
                 <div class="dash-modal__content">
+                    <!-- @slot Content of the Modal -->
                     <slot name="content"></slot>
                 </div>
             </div>
@@ -18,11 +20,6 @@
 
 export default {
     name: "DashModal",
-    data() {
-        return {
-            show: false
-        }
-    },
     mounted() {
         const trigger = document.getElementsByClassName("trigger")[0];
         const modal = document.getElementsByClassName("dash-modal")[0];
@@ -74,13 +71,6 @@ export default {
 
 .trigger {
     cursor: pointer;
-}
-
-.fade-enter-active, .fade-leave-active {
-    transition: opacity 0.2s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
 }
 
 </style>
