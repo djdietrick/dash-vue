@@ -4,20 +4,16 @@
             <!-- @slot Trigger for the Modal -->
             <slot name="trigger"></slot>
         </div>
-        <transition name="fade">
-            <div class="dash-modal" ref="modal">
-                <div class="dash-modal__content">
-                    <!-- @slot Content of the Modal -->
-                    <slot name="content"></slot>
-                </div>
+        <div class="dash-modal" ref="modal">
+            <div class="dash-modal__content">
+                <!-- @slot Content of the Modal -->
+                <slot name="content"></slot>
             </div>
-        </transition>
+        </div>
     </div>
 </template>
 
 <script>
-
-
 export default {
     name: "DashModal",
     mounted() {
@@ -39,7 +35,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .dash-modal {
     // Background greyed out

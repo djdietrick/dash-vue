@@ -1,27 +1,35 @@
 <template>
   <div id="app">
-    <DashModal>
-      <template v-slot:trigger>
-        <div>click me</div>
-      </template>
+    <div class="test_trigger">NO</div>
+    <div class="test_trigger">NO</div>
+    <Modal>
       <template v-slot:content>
-        <div class="content">TEST</div>
+        <div class="test_content">
+          TEST CONTENT
+        </div>
       </template>
-    </DashModal>
+      <template v-slot:trigger>
+        <div class="test_trigger">
+          TRIGGER
+        </div>
+      </template>
+
+    </Modal>
   </div>
 </template>
 
 <script>
-import DashModal from './components/Modal.vue'
+import Auth from './components/auth/Auth.vue'
+import Modal from './components/Modal.vue';
 export default {
   name: 'App',
   components: {
-    DashModal
+    Modal
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,10 +37,28 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: grey;
+  height: 50vh;
+  width: 50vw;
+  margin: 0 auto;
+  display: flex;
+  position: absolute;
 }
 
 .content {
   background-color: white;
   padding: 5rem;
 }
+
+.test {
+  &_trigger {
+    background-color: teal;
+    margin-right: 1rem;
+  }
+  &_content {
+    background-color: red;
+    height: 20vh;
+  }
+}
+
 </style>
