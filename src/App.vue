@@ -2,7 +2,7 @@
   <div id="app">
     <div class="test_trigger">NO</div>
     <div class="test_trigger">NO</div>
-    <Modal>
+    <Popover>
       <template v-slot:content>
         <div class="test_content">
           TEST CONTENT
@@ -14,17 +14,16 @@
         </div>
       </template>
 
-    </Modal>
+    </Popover>
   </div>
 </template>
 
 <script>
-import Auth from './components/auth/Auth.vue'
-import Modal from './components/Modal.vue';
+import Popover from './components/Popover.vue';
 export default {
   name: 'App',
   components: {
-    Modal
+    Popover
   }
 }
 </script>
@@ -58,6 +57,7 @@ export default {
   &_content {
     background-color: red;
     height: 20vh;
+    width: 10rem;
   }
 }
 

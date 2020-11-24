@@ -14,6 +14,7 @@
 
 <script>
 export default {
+    name: 'dash-login',
     props: {
         submitFunction: {
             type: Function,

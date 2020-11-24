@@ -17,6 +17,7 @@ import Login from './Login.vue';
 import Signup from './Signup.vue';
 
 export default {
+    name: 'dash-auth',
     props: {
       signupFunction: {
           type: Function,

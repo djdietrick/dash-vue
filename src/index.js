@@ -1,21 +1,15 @@
-import Vue from 'vue';
-
-import DashModal from './components/Modal.vue';
+import Modal from './components/Modal.vue';
+import Popover from './components/Popover.vue';
 import Auth from './components/auth/Auth.vue';
 import Login from './components/auth/Login.vue';
 import Signup from './components/auth/Signup.vue';
 
-const Components = {
-    DashModal,
-    Auth,
-    Login,
-    Signup
-}
-
 export default {
     install: function(Vue) {
-        Object.keys(Components).forEach(name => {
-            Vue.component(name, Components[name]);
-        })
+        Vue.component('dash-modal', Modal);
+        Vue.component('dash-popover', Popover);
+        Vue.component('dash-auth', Auth);
+        Vue.component('dash-login', Login);
+        Vue.component('dash-signup', Signup);
     }
 };

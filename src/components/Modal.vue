@@ -15,7 +15,7 @@
 
 <script>
 export default {
-    name: "DashModal",
+    name: "dash-modal",
     mounted() {
         const trigger = document.getElementsByClassName("trigger")[0];
         const modal = document.getElementsByClassName("dash-modal")[0];
