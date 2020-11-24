@@ -1,29 +1,20 @@
 <template>
   <div id="app">
-    <div class="test_trigger">NO</div>
-    <div class="test_trigger">NO</div>
-    <Popover>
-      <template v-slot:content>
-        <div class="test_content">
-          TEST CONTENT
-        </div>
-      </template>
-      <template v-slot:trigger>
-        <div class="test_trigger">
-          TRIGGER
-        </div>
-      </template>
-
-    </Popover>
+   <TextToggleInput placeholder="Title" v-bind:value.sync="test"/>
   </div>
 </template>
 
 <script>
-import Popover from './components/Popover.vue';
+import TextToggleInput from './components/input/toggle-inputs/TextToggleInput.vue';
 export default {
   name: 'App',
   components: {
-    Popover
+    TextToggleInput
+  },
+  data() {
+    return {
+      test: 'test'
+    }
   }
 }
 </script>
@@ -42,6 +33,10 @@ export default {
   margin: 0 auto;
   display: flex;
   position: absolute;
+}
+
+h1 {
+  color: red;
 }
 
 .content {
