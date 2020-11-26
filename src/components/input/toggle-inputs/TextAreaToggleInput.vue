@@ -1,13 +1,14 @@
 <template>
-    <div class="dash-text-toggle-input">
-        <div class="dash-text-toggle-input__display" :class="{ show: !focused}"
+    <div class="dash-textarea-toggle-input">
+        <div class="dash-textarea-toggle-input__display" :class="{ show: !focused}"
             @click="setFocus">
             <div>{{value}}</div>
         </div>
-        <div class="dash-text-toggle-input__input" :class="{ show: focused}">
+        <div class="dash-textarea-toggle-input__input" :class="{ show: focused}">
             <form class="form" @submit.prevent="submit">
-                <input type="text" class="form__input" v-model="newValue" 
-                    :placeholder="placeholder" @blur="submit" ref="input"/>
+                <textarea type="textarea" class="form__textarea" v-model="newValue" 
+                    :placeholder="placeholder" @blur="submit" ref="input"
+                    :cols="columns" :rows="rows"/>
                 <input type="submit" style="display:none" />
             </form>
         </div>
@@ -16,7 +17,7 @@
 
 <script>
 export default {
-    name: 'dash-text-toggle-input',
+    name: 'dash-text-area-toggle-input',
     props: {
         placeholder: {
             type: String,
@@ -25,6 +26,14 @@ export default {
         value: {
             type: String | Number,
             default: ""
+        },
+        rows: {
+            type: Number,
+            default: 5
+        },
+        columns: {
+            type: Number,
+            default: 40
         }
     },
     data() {
@@ -41,7 +50,8 @@ export default {
     methods: {
         submit() {
             this.$emit('update:value', this.newValue);
-            this.focused = false;
+            if(this.newValue !== '')
+                this.focused = false;
         },
         setFocus() {
             this.focused = true;
@@ -50,7 +60,7 @@ export default {
     },
     computed: {
         showInput: function() {
-            return this.focused || this.value === ''
+            return this.focused || this.newValue === ''
         },
         showDisplay: function() {
             return !this.showInput && !this.focused
@@ -65,13 +75,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dash-text-toggle-input {
+.dash-textarea-toggle-input {
     &__display {
         display: none;
         cursor: pointer;
     }
     &__input {
         display: none;
+        min-height: 5rem;
     }
 }
 

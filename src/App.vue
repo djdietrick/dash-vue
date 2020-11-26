@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-   <TextToggleInput placeholder="Title" v-bind:value.sync="test"/>
+   <TextAreaToggleInput placeholder="Title" v-bind:value.sync="test"/>
   </div>
 </template>
 
 <script>
-import TextToggleInput from './components/input/toggle-inputs/TextToggleInput.vue';
+import TextAreaToggleInput from './components/input/toggle-inputs/TextAreaToggleInput.vue';
 export default {
   name: 'App',
   components: {
-    TextToggleInput
+    TextAreaToggleInput
   },
   data() {
     return {
