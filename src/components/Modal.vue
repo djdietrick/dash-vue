@@ -27,9 +27,15 @@ export default {
 
         window.onclick = (event) => {
             if (event.target == modal) {
-                modal.style.opacity = 0;
-                modal.style.visibility = "hidden";
+                this.close();
             }
+        }
+    },
+    methods: {
+        close() {
+            const modal = this.$refs.modal;
+            modal.style.opacity = 0;
+            modal.style.visibility = "hidden";
         }
     }
 }

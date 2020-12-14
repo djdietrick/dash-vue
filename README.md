@@ -1,19 +1,11 @@
 # dash-vue
 
-## Project setup
+## Usage
+
+In main.js:
 ```
-npm install
+const DashVue = require('dash-vue');
+import 'dash-vue/dist/dash-vue.css';
+Vue.use(DashVue);
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -1,20 +1,28 @@
 <template>
   <div id="app">
-   <TextAreaToggleInput placeholder="Title" v-bind:value.sync="test"/>
+   <Auth :loginFunction="login" :signupFunction="signup" />
   </div>
 </template>
 
 <script>
-import TextAreaToggleInput from './components/input/toggle-inputs/TextAreaToggleInput.vue';
+import Modal from './components/Modal.vue'
+import Auth from './components/auth/Auth.vue';
 export default {
   name: 'App',
   components: {
-    TextAreaToggleInput
+    Auth
   },
   data() {
     return {
       test: 'test'
     }
+  },
+  methods: {
+    closeModal() {
+      this.$refs.test.close();
+    },
+    login() {},
+    signup() {}
   }
 }
 </script>
@@ -35,24 +43,12 @@ export default {
   position: absolute;
 }
 
-h1 {
-  color: red;
-}
+.btn {
+  padding: 1rem;
+  background-color: blue;
 
-.content {
-  background-color: white;
-  padding: 5rem;
-}
-
-.test {
-  &_trigger {
-    background-color: teal;
-    margin-right: 1rem;
-  }
-  &_content {
+  &__selected {
     background-color: red;
-    height: 20vh;
-    width: 10rem;
   }
 }
 

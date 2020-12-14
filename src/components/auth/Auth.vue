@@ -1,10 +1,10 @@
 <template>
     <div class="auth">
         <div class="auth__btn-group">
-            <div class="btn auth__btn" @click="setComponent('login')">
+            <div class="btn auth__btn" :class="{btn__selected: selectedComponent == 'login'}" @click="setComponent('login')">
                 <div class="btn__text">Login</div>
             </div>
-            <div class="btn auth__btn" @click="setComponent('signup')">
+            <div class="btn auth__btn" :class="{btn__selected: selectedComponent == 'signup'}" @click="setComponent('signup')">
                 <div class="btn__text">Signup</div>
             </div>
         </div>
